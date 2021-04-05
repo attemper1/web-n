@@ -45,7 +45,19 @@
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </head>
 <body>
-  <input type="button" id="authBtn" value="checking...">
+  <input type="button" id="authBtn" value="checking..." onclick="
+    if(this.value==='Login'){
+      //now logout
+      FB.login(function(res){
+        console.log('login =>', res);
+      });
+    }else{
+      //now login
+      FB.logout(function(res){
+        console.log('logout =>', res);
+      });
+    }
+  ">
   <h1><a href="index.html">WEB</a></h1>
   <input id="night_day" type="button" value="night" onclick="
     nightDayHandler(this);
