@@ -12,7 +12,7 @@
       gapi.load('auth2', function() {
         /* Ready. Make a call to gapi.auth2.init or some other API */
         console.log('auth2');
-        var gauth=gapi.auth2.init({
+        window.gauth=gapi.auth2.init({
           client_id: '295562025227-72vkpu7pjugq5uad4tjs1et558vcdvri.apps.googleusercontent.com'
         });
         gauth.then(function(){
@@ -42,7 +42,17 @@
   </script>
 </head>
 <body>
-  <input type="button" id="loginBtn" value="checking...">
+  <input type="button" id="loginBtn" value="checking..." onclick="
+    if(this.value==='Login'){
+      gauth.signIn().then(function(){
+        console.log('gauth.signIn()');
+      });
+    }else{
+      gauth.signOut().then(function(){
+        console.log('gauth.signOut()');
+      });
+    }
+  ">
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <h1><a href="index.html">WEB</a></h1>
   <input id="night_day" type="button" value="night" onclick="
