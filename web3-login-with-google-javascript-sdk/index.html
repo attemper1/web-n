@@ -60,7 +60,9 @@
   <span id="name"></span>
   <input type="button" id="loginBtn" value="checking..." onclick="
     if(this.value==='Login'){
-      gauth.signIn().then(function(){
+      gauth.signIn({
+        scope: 'https://www.googleapis.com/auth/calendar'
+      }).then(function(){
         console.log('gauth.signIn()');
         checkLoginStatus();
       });
