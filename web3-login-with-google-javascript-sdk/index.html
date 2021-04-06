@@ -46,12 +46,10 @@
     if(this.value==='Login'){
       gauth.signIn().then(function(){
         console.log('gauth.signIn()');
-        checkLoginStatus();
       });
     }else{
       gauth.signOut().then(function(){
         console.log('gauth.signOut()');
-        checkLoginStatus();
       });
     }
   ">
