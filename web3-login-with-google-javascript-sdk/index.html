@@ -15,9 +15,11 @@
           loginBtn.value='Logout';
           var profile=gauth.currentUser.get().getBasicProfile();
           console.log(profile.getName());
+          nameTxt.innerHTML='Welcome <strong>'+profile.getName()+'</strong> ';
         }else{
           console.log('logouted');
           loginBtn.value='Login';
+          nameTxt.innerHTML='';
         }
     }
     function init() {
