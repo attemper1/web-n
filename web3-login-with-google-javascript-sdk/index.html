@@ -52,19 +52,7 @@
   </script>
 </head>
 <body>
-  <input type="button" id="loginBtn" value="checking..." onclick="
-    if(this.value==='Login'){
-      gauth.signIn().then(function(){
-        console.log('gauth.signIn()');
-        checkLoginStatus();
-      });
-    }else{
-      gauth.signOut().then(function(){
-        console.log('gauth.signOut()');
-        checkLoginStatus();
-      });
-    }
-  ">
+  <input type="button" id="loginBtn" value="checking...">
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <h1><a href="index.html">WEB</a></h1>
   <input id="night_day" type="button" value="night" onclick="
