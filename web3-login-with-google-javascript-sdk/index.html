@@ -18,11 +18,12 @@
         gauth.then(function(){
           console.log('googleAuth success');
           var loginBtn=document.querySelector('#loginBtn');
-          console.log(loginBtn);
           if(gauth.isSignedIn.get()){
             console.log('logined');
+            loginBtn.value='Logout';
           }else{
             console.log('logouted');
+            loginBtn.value='Login';
           }
         },function(){
           console.log('googleAuth fail');
