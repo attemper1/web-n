@@ -13,7 +13,7 @@
         if(gauth.isSignedIn.get()){
           console.log('logined');
           loginBtn.value='Logout';
-          gauth.currentUser.get().getBasicProfile();
+          var profile=gauth.currentUser.get().getBasicProfile();
           console.log(profile);
         }else{
           console.log('logouted');
