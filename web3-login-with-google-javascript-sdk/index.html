@@ -6,17 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="colors.js"></script>
   <meta name="google-signin-client_id" content="295562025227-72vkpu7pjugq5uad4tjs1et558vcdvri.apps.googleusercontent.com">
-  <script>
-    function checkLoginStatus(){
-      var loginBtn=document.querySelector('#loginBtn');
-        if(gauth.isSignedIn.get()){
-          console.log('logined');
-          loginBtn.value='Logout';
-        }else{
-          console.log('logouted');
-          loginBtn.value='Login';
-        }
-    }
+  <script>    
     function init() {
       console.log('init');
       gapi.load('auth2', function() {
@@ -52,7 +42,19 @@
   </script>
 </head>
 <body>
-  <input type="button" id="loginBtn" value="checking...">
+  <input type="button" id="loginBtn" value="checking..." onclick="
+    if(this.value==='Login'){
+      gauth.signIn().then(function(){
+        console.log('gauth.signIn()');
+        checkLoginStatus();
+      });
+    }else{
+      gauth.signOut().then(function(){
+        console.log('gauth.signOut()');
+        checkLoginStatus();
+      });
+    }
+  ">
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <h1><a href="index.html">WEB</a></h1>
   <input id="night_day" type="button" value="night" onclick="
